@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_catalog/home.dart';
+import 'package:flutter_catalog/screens/home.dart';
+import 'package:flutter_catalog/screens/login.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,7 +16,16 @@ class MyApp extends StatelessWidget {
     const PI = 3.14;
 
     return MaterialApp(
-      home: Home(),
+      // home: Home(),
+      themeMode: ThemeMode.light,
+      theme: ThemeData(primarySwatch: Colors.deepPurple),
+      darkTheme: ThemeData(brightness: Brightness.dark),
+      initialRoute: "/home",
+      routes: {
+        "/": (context) => Login(),
+        "/login": (context) => Login(),
+        "/home": (context) => Home()
+      },
     );
   }
 }
