@@ -3,7 +3,6 @@ import 'package:flutter_catalog/screens/home.dart';
 import 'package:flutter_catalog/screens/login.dart';
 import 'package:flutter_catalog/utils/routes.dart';
 import 'package:flutter_catalog/widgets/themes.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,23 +11,16 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    //double pi = 3.14;
-    // bool isMale = true;
-    // num temp = 31.5;
-    // var day = "Monday";
-    // const PI = 3.14;
-
     return MaterialApp(
-      // home: Home(),
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.light,
       theme: MyTheme.lightTheme(context),
       darkTheme: ThemeData(brightness: Brightness.dark),
-      initialRoute: MyRoutes.HOME,
+      initialRoute: MyRoutes.home,
       routes: {
         "/": (context) => Login(),
-        MyRoutes.LOGIN: (context) => Login(),
-        MyRoutes.HOME: (context) => Home()
+        MyRoutes.login: (context) => Login(),
+        MyRoutes.home: (context) => Home()
       },
     );
   }
