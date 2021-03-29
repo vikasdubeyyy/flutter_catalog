@@ -8,7 +8,9 @@ class Cart extends StatelessWidget {
     return Scaffold(
       backgroundColor: MyTheme.creamColor,
       appBar: AppBar(
-          backgroundColor: Colors.transparent, title: "Add".text.black.make()),
+        backgroundColor: Colors.transparent,
+        title: "Add to cart".text.make(),
+      ),
     );
   }
 }
