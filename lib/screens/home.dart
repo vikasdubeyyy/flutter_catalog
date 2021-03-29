@@ -9,6 +9,7 @@ import 'package:flutter_catalog/widgets/home_widgets/catalog_header.dart';
 import 'package:flutter_catalog/widgets/home_widgets/catalog_list.dart';
 import 'dart:convert';
 import 'package:velocity_x/velocity_x.dart';
+import 'package:http/http.dart' as http;
 
 class Home extends StatefulWidget {
   @override
@@ -16,6 +17,8 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  final url = "https://run.mocky.io/v3/336ad8c2-5f99-474e-a1bb-4ac4192c9890";
+
   @override
   void initState() {
     super.initState();
@@ -24,8 +27,9 @@ class _HomeState extends State<Home> {
 
   loadData() async {
     await Future.delayed(Duration(seconds: 2));
-    final catalogJson =
-        await rootBundle.loadString("assets/files/catalog.json");
+    // final catalogJson =  await rootBundle.loadString("assets/files/catalog.json");
+    final response = await http.get(Uri.parse(url));
+    final catalogJson = response.body;
     final decodedData = jsonDecode(catalogJson);
     var productsData = decodedData["products"];
     CatalogModel.items = List.from(productsData)
@@ -49,7 +53,7 @@ class _HomeState extends State<Home> {
             backgroundColor: context.theme.buttonColor,
             child: Icon(CupertinoIcons.cart, color: Colors.white),
           ).badge(
-              color: Vx.red500,
+              color: Vx.gray200,
               size: 20,
               count: _cart.items.length,
               textStyle: TextStyle(
