@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_catalog/core/store.dart';
 import 'package:flutter_catalog/entities/cart.dart';
 import 'package:flutter_catalog/entities/catalog.dart';
@@ -27,7 +26,6 @@ class _HomeState extends State<Home> {
 
   loadData() async {
     await Future.delayed(Duration(seconds: 2));
-    // final catalogJson =  await rootBundle.loadString("assets/files/catalog.json");
     final response = await http.get(Uri.parse(url));
     final catalogJson = response.body;
     final decodedData = jsonDecode(catalogJson);
