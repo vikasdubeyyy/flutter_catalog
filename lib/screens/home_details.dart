@@ -12,7 +12,7 @@ class HomeDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(backgroundColor: Colors.transparent),
       backgroundColor: MyTheme.creamColor,
       bottomNavigationBar: Container(
         color: Colors.white,
@@ -30,8 +30,8 @@ class HomeDetails extends StatelessWidget {
                   shape: MaterialStateProperty.all(
                     StadiumBorder(),
                   )),
-              child: "Buy".text.make(),
-            ).wh(100, 50)
+              child: "Add to cart".text.make(),
+            ).wh(120, 50)
           ],
         ).p32(),
       ),
@@ -59,6 +59,11 @@ class HomeDetails extends StatelessWidget {
                         .make(),
                     catalog.desc.text.textStyle(context.captionStyle).xl.make(),
                     10.heightBox,
+                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the "
+                        .text
+                        .textStyle(context.captionStyle)
+                        .make()
+                        .p16(),
                   ],
                 ).py64(),
               ),
